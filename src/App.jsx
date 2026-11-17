@@ -20,11 +20,6 @@ const CleshaLogo = ({ size = 'normal' }) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
       <div style={{ position: 'relative', width: '44px', height: '44px', background: '#111827', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #db2777', flexShrink: 0 }}>
-        <div style={{ position: 'absolute', top: '-7px', right: '6px', color: '#ec4899' }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M2 19h20v2H2zM2 5l4 5 6-7 6 7 4-5v12H2V5z"/>
-          </svg>
-        </div>
         <span style={{ fontSize: '18px', fontWeight: '900', fontStyle: 'italic', fontFamily: 'serif', color: '#f8fafc' }}>C</span>
         <span style={{ fontSize: '18px', fontWeight: '900', color: '#db2777' }}>S</span>
       </div>
@@ -48,7 +43,7 @@ const CleshaLogo = ({ size = 'normal' }) => {
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [authMode, setAuthMode] = useState('login'); // 'login' | 'register' | 'admin'
+  const [authMode, setAuthMode] = useState('login');
   const [inputName, setInputName] = useState('');
   const [inputPhone, setInputPhone] = useState('');
   const [adminPinInput, setAdminPinInput] = useState('');
@@ -97,7 +92,6 @@ export default function App() {
   const handleAuthSubmit = (e) => {
     e.preventDefault();
     setAuthError('');
-
     if (authMode === 'admin') {
       if (adminPinInput === WORKSHOP_PIN) {
         setCurrentUser({ name: 'Workshop Admin', phone: '0795436044', role: 'admin' });
@@ -131,7 +125,6 @@ export default function App() {
     const total = calculateEstimate();
     const deposit = Math.round(total * 0.5);
     const orderId = `CP-2026-0${orders.length + 1}`;
-
     const message = `Hello Clesha Prints! Order ID: ${orderId} | Client: ${currentUser.name} (${currentUser.phone}) | Service: ${quoteService} | Qty: ${quoteQty} | Total: KES ${total.toLocaleString()} | 50% Deposit: KES ${deposit.toLocaleString()}`;
 
     setOrders([{
@@ -146,68 +139,32 @@ export default function App() {
     return (
       <div style={{ fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
         <div style={{ background: '#ffffff', borderRadius: '20px', maxWidth: '440px', width: '100%', padding: '32px', boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}>
-          
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-            <CleshaLogo size="large" />
-          </div>
-
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}><CleshaLogo size="large" /></div>
           <div style={{ background: '#0284c7', color: '#fff', padding: '16px', borderRadius: '12px', textAlign: 'center', marginBottom: '24px' }}>
             <h3 style={{ margin: '0 0 4px 0', fontSize: '18px' }}>Clesha Prints Portal</h3>
-            <p style={{ margin: 0, fontSize: '12px', opacity: 0.9 }}>
-              {authMode === 'register' ? 'Create a new customer account' : authMode === 'admin' ? 'Workshop Staff Access' : 'Sign in to continue'}
-            </p>
+            <p style={{ margin: 0, fontSize: '12px', opacity: 0.9 }}>{authMode === 'register' ? 'Create a new customer account' : authMode === 'admin' ? 'Workshop Staff Access' : 'Sign in to continue'}</p>
           </div>
-
           <form onSubmit={handleAuthSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {authMode !== 'admin' ? (
               <>
                 <div>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', color: '#334155', marginBottom: '4px' }}>Full Name / Business Name</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Brian Otieno"
-                    value={inputName}
-                    onChange={e => setInputName(e.target.value)}
-                    style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box' }}
-                  />
+                  <input type="text" required placeholder="e.g. Brian Otieno" value={inputName} onChange={e => setInputName(e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box' }} />
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', color: '#334155', marginBottom: '4px' }}>Phone Number (M-Pesa / WhatsApp)</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="e.g. 0712 345 678"
-                    value={inputPhone}
-                    onChange={e => setInputPhone(e.target.value)}
-                    style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box' }}
-                  />
+                  <input type="tel" required placeholder="e.g. 0712 345 678" value={inputPhone} onChange={e => setInputPhone(e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box' }} />
                 </div>
               </>
             ) : (
               <div>
                 <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', color: '#334155', marginBottom: '4px' }}>Workshop Secret PIN</label>
-                <input
-                  type="password"
-                  required
-                  placeholder="Enter PIN"
-                  value={adminPinInput}
-                  onChange={e => setAdminPinInput(e.target.value)}
-                  style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '18px', textAlign: 'center', letterSpacing: '4px', boxSizing: 'border-box' }}
-                />
+                <input type="password" required placeholder="Enter PIN" value={adminPinInput} onChange={e => setAdminPinInput(e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '18px', textAlign: 'center', letterSpacing: '4px', boxSizing: 'border-box' }} />
               </div>
             )}
-
             {authError && <p style={{ color: '#dc2626', fontSize: '12px', fontWeight: '600', margin: 0, textAlign: 'center' }}>{authError}</p>}
-
-            <button
-              type="submit"
-              style={{ background: '#0284c7', color: '#ffffff', border: 'none', padding: '14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', cursor: 'pointer', marginTop: '6px' }}
-            >
-              {authMode === 'register' ? 'Register Account' : authMode === 'admin' ? 'Unlock Admin Dashboard' : 'Login'}
-            </button>
+            <button type="submit" style={{ background: '#0284c7', color: '#ffffff', border: 'none', padding: '14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', cursor: 'pointer', marginTop: '6px' }}>{authMode === 'register' ? 'Register Account' : authMode === 'admin' ? 'Unlock Admin Dashboard' : 'Login'}</button>
           </form>
-
           <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid #e2e8f0', textAlign: 'center', fontSize: '13px' }}>
             {authMode === 'register' ? (
               <span>Already have an account? <button onClick={() => { setAuthMode('login'); setAuthError(''); }} style={{ background: 'transparent', border: 'none', color: '#0284c7', fontWeight: 'bold', cursor: 'pointer' }}>Sign In</button></span>
@@ -228,6 +185,7 @@ export default function App() {
   return (
     <div style={{ fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', background: '#f8fafc', minHeight: '100vh', display: 'flex', flexDirection: 'column', color: '#1e293b' }}>
 
+      {/* Top Bar */}
       <div style={{ background: '#0f172a', color: '#cbd5e1', padding: '8px 16px', fontSize: '13px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
         <div>🟢 Logged in as <strong style={{ color: '#38bdf8' }}>{currentUser.name}</strong> ({currentUser.phone})</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -236,12 +194,9 @@ export default function App() {
         </div>
       </div>
 
-      {/* Header with Always-Visible "Services & Samples" Navigation */}
+      {/* Header */}
       <header style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 40, flexWrap: 'wrap', gap: '12px' }}>
-        <div style={{ cursor: 'pointer' }} onClick={() => setActiveTab('storefront')}>
-          <CleshaLogo />
-        </div>
-
+        <div style={{ cursor: 'pointer' }} onClick={() => setActiveTab('storefront')}><CleshaLogo /></div>
         <nav style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           <button onClick={() => setActiveTab('storefront')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: activeTab === 'storefront' ? '#0f172a' : '#f1f5f9', color: activeTab === 'storefront' ? '#fff' : '#475569', fontWeight: 'bold', cursor: 'pointer' }}>🏠 Services & Samples</button>
           <button onClick={() => setActiveTab('calculator')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: activeTab === 'calculator' ? '#db2777' : '#fdf2f8', color: activeTab === 'calculator' ? '#fff' : '#db2777', fontWeight: 'bold', cursor: 'pointer' }}>Instant Quote</button>
@@ -252,7 +207,8 @@ export default function App() {
         </nav>
       </header>
 
-      <main style={{ maxWidth: '1200px', width: '100%', margin: '0 auto', padding: '24px 16px', flexGrow: 1 }}>
+      {/* Main Content */}
+      <main style={{ maxWidth: '1200px', width: '100%', margin: '0 auto', padding: '24px 16px', flexGrow: 1, boxSizing: 'border-box' }}>
         {activeTab === 'storefront' && (
           <div>
             <div style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)', color: '#fff', padding: '40px', borderRadius: '24px', marginBottom: '24px' }}>
@@ -272,9 +228,9 @@ export default function App() {
               {categories.filter(c => c !== 'All' && (selectedCategory === 'All' || c === selectedCategory)).map((serv, idx) => {
                 const info = serviceData[serv];
                 return (
-                  <div key={idx} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: '18px', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div key={idx} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: '18px', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
                     <div>
-                      <div style={{ position: 'relative', height: '150px', background: '#e2e8f0' }}>
+                      <div style={{ position: 'relative', height: '160px', background: '#e2e8f0' }}>
                         <img src={info?.samples[0]} alt={serv} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <button onClick={() => setGalleryService(serv)} style={{ position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(15, 23, 42, 0.85)', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '10px', fontSize: '11px', fontWeight: 'bold', cursor: 'pointer' }}>📸 View Samples</button>
                       </div>
@@ -307,7 +263,7 @@ export default function App() {
             <form onSubmit={handleWhatsAppOrder} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '13px', fontWeight: 'bold', marginBottom: '6px' }}>Select Service</label>
-                <select value={quoteService} onChange={e => setQuoteService(e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1' }}>
+                <select value={quoteService} onChange={e => setQuoteService(e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1', boxSizing: 'border-box' }}>
                   {categories.filter(c => c !== 'All').map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
@@ -384,6 +340,7 @@ export default function App() {
         )}
       </main>
 
+      {/* Gallery Modal */}
       {galleryService && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100, padding: '16px' }}>
           <div style={{ background: '#fff', borderRadius: '24px', maxWidth: '700px', width: '100%', padding: '24px' }}>
@@ -399,9 +356,30 @@ export default function App() {
         </div>
       )}
 
-      <footer style={{ background: '#0f172a', color: '#94a3b8', padding: '20px', textAlign: 'center', marginTop: '40px', fontSize: '13px' }}>
-        <p style={{ margin: 0 }}>Clesha Prints — Design | Print | Brand | 0795 436 044</p>
+      {/* --- PROFESSIONAL MULTI-COLUMN FOOTER --- */}
+      <footer style={{ background: '#0f172a', color: '#94a3b8', padding: '40px 20px 20px 20px', marginTop: '60px', borderTop: '1px solid #1e293b' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginBottom: '30px' }}>
+          <div>
+            <h4 style={{ color: '#fff', fontSize: '16px', fontWeight: 'bold', marginBottom: '12px' }}>Clesha Prints Hub</h4>
+            <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>Your premier partner for professional large format printing, apparel branding, customized merchandise, and event signage across Kenya.</p>
+          </div>
+          <div>
+            <h4 style={{ color: '#fff', fontSize: '16px', fontWeight: 'bold', marginBottom: '12px' }}>Shop Contacts</h4>
+            <p style={{ fontSize: '13px', margin: '0 0 6px 0' }}>📞 Primary Line: <a href="tel:0795436044" style={{ color: '#38bdf8', textDecoration: 'none' }}>0795 436 044</a></p>
+            <p style={{ fontSize: '13px', margin: '0 0 6px 0' }}>📞 Secondary Line: <a href="tel:0792303682" style={{ color: '#f472b6', textDecoration: 'none' }}>0792 303 682</a></p>
+            <p style={{ fontSize: '13px', margin: 0 }}>🟢 WhatsApp Orders Active</p>
+          </div>
+          <div>
+            <h4 style={{ color: '#fff', fontSize: '16px', fontWeight: 'bold', marginBottom: '12px' }}>Payment & Terms</h4>
+            <p style={{ fontSize: '13px', margin: '0 0 6px 0' }}>💳 M-Pesa Till & Paybill Accepted</p>
+            <p style={{ fontSize: '13px', margin: 0 }}>⚡ 50% Deposit Required for Production</p>
+          </div>
+        </div>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', borderTop: '1px solid #1e293b', paddingTop: '20px', textAlign: 'center', fontSize: '12px', color: '#64748b' }}>
+          <p style={{ margin: 0 }}>Clesha Prints © 2026 — Design | Print | Brand. All Rights Reserved.</p>
+        </div>
       </footer>
+
     </div>
   );
 }
