@@ -79,58 +79,19 @@ export default function App() {
   ];
 
   const serviceData = {
-    'Large Format & Signage': {
-      base: 1500, unit: 'sq ft', min: 10,
-      samples: ['https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=600&q=80']
-    },
-    'Sticker Printing': {
-      base: 50, unit: 'piece', min: 50,
-      samples: ['https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&w=600&q=80']
-    },
-    'Matanga & Funeral Services': {
-      base: 3500, unit: 'package', min: 1,
-      samples: ['https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80']
-    },
-    'Apparel & Jerseys': {
-      base: 850, unit: 'piece', min: 5,
-      samples: ['https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80']
-    },
-    'Campaign Materials': {
-      base: 200, unit: 'piece', min: 100,
-      samples: ['https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80']
-    },
-    'Cup Printing & Branding': {
-      base: 450, unit: 'piece', min: 10,
-      samples: ['https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80']
-    },
-    'Sublimation Printing': {
-      base: 600, unit: 'item', min: 5,
-      samples: ['https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80']
-    },
-    'Vinyl Selling': {
-      base: 800, unit: 'metre', min: 1,
-      samples: ['https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80']
-    },
-    'DTF Printing': {
-      base: 1200, unit: 'metre', min: 1,
-      samples: ['https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=600&q=80']
-    },
-    'Pen Branding': {
-      base: 70, unit: 'piece', min: 50,
-      samples: ['https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80']
-    },
-    '3D Signage': {
-      base: 8500, unit: 'unit', min: 1,
-      samples: ['https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=600&q=80']
-    },
-    'Uniform Labelling': {
-      base: 350, unit: 'piece', min: 10,
-      samples: ['https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80']
-    },
-    'Roll-Up Banners': {
-      base: 4500, unit: 'piece', min: 1,
-      samples: ['https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80']
-    }
+    'Large Format & Signage': { base: 1500, unit: 'sq ft', min: 10, samples: ['https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=600&q=80'] },
+    'Sticker Printing': { base: 50, unit: 'piece', min: 50, samples: ['https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&w=600&q=80'] },
+    'Matanga & Funeral Services': { base: 3500, unit: 'package', min: 1, samples: ['https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'] },
+    'Apparel & Jerseys': { base: 850, unit: 'piece', min: 5, samples: ['https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80'] },
+    'Campaign Materials': { base: 200, unit: 'piece', min: 100, samples: ['https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80'] },
+    'Cup Printing & Branding': { base: 450, unit: 'piece', min: 10, samples: ['https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80'] },
+    'Sublimation Printing': { base: 600, unit: 'item', min: 5, samples: ['https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80'] },
+    'Vinyl Selling': { base: 800, unit: 'metre', min: 1, samples: ['https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80'] },
+    'DTF Printing': { base: 1200, unit: 'metre', min: 1, samples: ['https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=600&q=80'] },
+    'Pen Branding': { base: 70, unit: 'piece', min: 50, samples: ['https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80'] },
+    '3D Signage': { base: 8500, unit: 'unit', min: 1, samples: ['https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=600&q=80'] },
+    'Uniform Labelling': { base: 350, unit: 'piece', min: 10, samples: ['https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80'] },
+    'Roll-Up Banners': { base: 4500, unit: 'piece', min: 1, samples: ['https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80'] }
   };
 
   const handleAuthSubmit = (e) => {
@@ -145,7 +106,6 @@ export default function App() {
         setAuthError('Incorrect Workshop PIN.');
       }
     } else {
-      // Login or Register Customer
       if (!inputName.trim() || !inputPhone.trim()) {
         setAuthError('Please fill in both name and phone number.');
         return;
@@ -182,9 +142,6 @@ export default function App() {
     window.open(`https://wa.me/254${selectedShopLine.replace(/^0/, '')}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  // =========================================================================
-  // LOGIN / REGISTER GATEWAY (Matches professional layout)
-  // =========================================================================
   if (!currentUser) {
     return (
       <div style={{ fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
@@ -251,7 +208,6 @@ export default function App() {
             </button>
           </form>
 
-          {/* Toggle between Login, Register, and Admin */}
           <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid #e2e8f0', textAlign: 'center', fontSize: '13px' }}>
             {authMode === 'register' ? (
               <span>Already have an account? <button onClick={() => { setAuthMode('login'); setAuthError(''); }} style={{ background: 'transparent', border: 'none', color: '#0284c7', fontWeight: 'bold', cursor: 'pointer' }}>Sign In</button></span>
@@ -264,18 +220,11 @@ export default function App() {
               <span><button onClick={() => { setAuthMode('login'); setAuthError(''); }} style={{ background: 'transparent', border: 'none', color: '#0284c7', fontWeight: 'bold', cursor: 'pointer' }}>← Back to Client Login</button></span>
             )}
           </div>
-
-          <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '11px', color: '#64748b' }}>
-            Clesha Prints System © 2026
-          </div>
         </div>
       </div>
     );
   }
 
-  // =========================================================================
-  // MAIN APP
-  // =========================================================================
   return (
     <div style={{ fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', background: '#f8fafc', minHeight: '100vh', display: 'flex', flexDirection: 'column', color: '#1e293b' }}>
 
@@ -287,13 +236,14 @@ export default function App() {
         </div>
       </div>
 
+      {/* Header with Always-Visible "Services & Samples" Navigation */}
       <header style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 40, flexWrap: 'wrap', gap: '12px' }}>
         <div style={{ cursor: 'pointer' }} onClick={() => setActiveTab('storefront')}>
           <CleshaLogo />
         </div>
 
         <nav style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <button onClick={() => setActiveTab('storefront')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: activeTab === 'storefront' ? '#0f172a' : '#f1f5f9', color: activeTab === 'storefront' ? '#fff' : '#475569', fontWeight: 'bold', cursor: 'pointer' }}>Services & Samples</button>
+          <button onClick={() => setActiveTab('storefront')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: activeTab === 'storefront' ? '#0f172a' : '#f1f5f9', color: activeTab === 'storefront' ? '#fff' : '#475569', fontWeight: 'bold', cursor: 'pointer' }}>🏠 Services & Samples</button>
           <button onClick={() => setActiveTab('calculator')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: activeTab === 'calculator' ? '#db2777' : '#fdf2f8', color: activeTab === 'calculator' ? '#fff' : '#db2777', fontWeight: 'bold', cursor: 'pointer' }}>Instant Quote</button>
           <button onClick={() => setActiveTab('track')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: activeTab === 'track' ? '#0284c7' : '#e0f2fe', color: activeTab === 'track' ? '#fff' : '#0369a1', fontWeight: 'bold', cursor: 'pointer' }}>Track Order</button>
           {currentUser.role === 'admin' && (
@@ -346,8 +296,14 @@ export default function App() {
 
         {activeTab === 'calculator' && (
           <div style={{ maxWidth: '700px', margin: '0 auto', background: '#fff', borderRadius: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', padding: '24px', border: '1px solid #e2e8f0' }}>
-            <h2 style={{ margin: '0 0 4px 0', fontSize: '22px' }}>Instant Quote & Order Builder</h2>
-            <p style={{ color: '#64748b', fontSize: '13px', marginBottom: '20px' }}>Ordering as <strong>{currentUser.name}</strong></p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <div>
+                <h2 style={{ margin: '0 0 4px 0', fontSize: '22px' }}>Instant Quote & Order Builder</h2>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '13px' }}>Ordering as <strong>{currentUser.name}</strong></p>
+              </div>
+              <button onClick={() => setActiveTab('storefront')} style={{ background: '#f1f5f9', border: 'none', padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '12px', cursor: 'pointer' }}>← Back to Services</button>
+            </div>
+            
             <form onSubmit={handleWhatsAppOrder} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '13px', fontWeight: 'bold', marginBottom: '6px' }}>Select Service</label>
@@ -376,8 +332,11 @@ export default function App() {
         )}
 
         {activeTab === 'track' && (
-          <div style={{ maxWidth: '600px', margin: '0 auto', background: '#fff', padding: '30px', borderRadius: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', textAlign: 'center' }}>
-            <h2>Track Order Status</h2>
+          <div style={{ maxWidth: '600px', margin: '0 auto', background: '#fff', padding: '30px', borderRadius: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <h2 style={{ margin: 0 }}>Track Order Status</h2>
+              <button onClick={() => setActiveTab('storefront')} style={{ background: '#f1f5f9', border: 'none', padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '12px', cursor: 'pointer' }}>← Back to Services</button>
+            </div>
             <form onSubmit={e => { e.preventDefault(); setTrackedOrder(orders.find(o => o.id.toLowerCase() === trackingSearch.trim().toLowerCase() || o.phone.includes(trackingSearch.trim())) || { notFound: true }); }} style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
               <input type="text" placeholder="Enter Order ID or Phone..." value={trackingSearch} onChange={e => setTrackingSearch(e.target.value)} style={{ flexGrow: 1, padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1' }} />
               <button type="submit" style={{ background: '#0284c7', color: '#fff', border: 'none', padding: '12px 20px', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}>Search</button>
@@ -395,7 +354,10 @@ export default function App() {
 
         {activeTab === 'admin' && currentUser.role === 'admin' && (
           <div style={{ background: '#fff', padding: '24px', borderRadius: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
-            <h2>Workshop Admin — Active Orders</h2>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <h2 style={{ margin: 0 }}>Workshop Admin — Active Orders</h2>
+              <button onClick={() => setActiveTab('storefront')} style={{ background: '#f1f5f9', border: 'none', padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '12px', cursor: 'pointer' }}>← Back to Services</button>
+            </div>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
               <thead>
                 <tr style={{ background: '#f1f5f9', borderBottom: '2px solid #cbd5e1' }}>
